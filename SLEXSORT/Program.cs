@@ -1,0 +1,2 @@
+﻿using System;
+class P { static void Main() { int t = int.Parse(Console.ReadLine()); for (int i = 0; i < t; i++) { var s = Console.ReadLine(); int n = int.Parse(Console.ReadLine()); var w = new string[n]; for (int j = 0; j < n; j++) w[j] = Console.ReadLine(); var o = new int[256]; for (int k = 0; k < s.Length;) o[s[k]] = k++; Array.Sort(w, (a, b) => { for (int k = 0; k < Math.Min(a.Length, b.Length); k++) if (o[a[k]] != o[b[k]]) return o[a[k]] - o[b[k]]; return a.Length - b.Length; }); Console.WriteLine(string.Join("\n", w)); if (i < t - 1) Console.ReadLine(); } } }
